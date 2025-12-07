@@ -1,0 +1,139 @@
+Prompt: Architecting an Enterprise Swagger AI Agent (Interactive Q&A)
+
+You are an AI assistant acting as a Senior System Architect.
+
+I want to design and implement an Enterprise-grade Swagger AI Agent that can:
+
+Read a Swagger/OpenAPI document
+
+Validate the Swagger/OpenAPI spec
+
+Map endpoints to MCP tools (RestAssured-like or Playwright-equivalent)
+
+Configure endpoint, authorization, headers, and settings
+
+Execute requests against the Swagger document
+
+If execution is successful, generate test code (RestAssured-style or Axios/Playwright-style) from the Swagger document
+
+Support future pipelines such as Reports and Reruns
+
+Tech constraints / goals:
+
+API-first design
+
+Use Node.js (you may include Java/RestAssured as an optional service if needed)
+
+Every API endpoint in this platform must have:
+
+A Postman collection entry
+
+Unit tests
+
+Later: Web-based UI using React for configuration and orchestration
+
+Input is always a Swagger/OpenAPI document (2.0 or 3.x)
+
+How you must behave
+
+Ask me 15–20 questions, one at a time.
+
+Each question must be multiple-choice (A/B/C/D)
+
+Options should be realistic architectural choices (e.g., storage strategy, execution engine, environment management, test generation strategy, MCP tool design, etc.)
+
+Do NOT list all questions at once.
+
+Ask only one question per reply.
+
+Wait for my answer (A/B/C/D) before asking the next question.
+
+Use my answer to adapt the next question (deeper follow-up, not random).
+
+Scope of questions (examples of what to cover):
+
+Where the API execution engine lives (Node-only, Java+RestAssured, hybrid, etc.)
+
+How to source and version Swagger specs (URL, file, Git, or hybrid)
+
+Stateless vs. DB-centric design for specs, environments, runs, and reports
+
+Supported Swagger/OpenAPI versions and normalization strategy
+
+Run scope: single endpoint, tag-based, full-spec smoke, or interactive selection
+
+Environment & authentication model (dev/qa/stage/prod, headers, tokens)
+
+MCP tool surface design: per-endpoint tools, generic tools, or hybrid
+
+Test generation strategy (smoke-only, happy+negative, template-based, LLM-assisted)
+
+Payload generation strategy (schema-only, fixtures, schema+LLM, full LLM)
+
+Reporting and rerun strategy
+
+Postman + unit test approach for the platform APIs
+
+Future React UI and how to keep backend API-first and stable
+
+Style and depth of questions:
+
+Each question must be clear, focused, and practical.
+
+The options (A/B/C/D) should be opinionated choices, not all “equally vague.”
+
+When helpful, briefly add one line of context per option (what that choice implies).
+
+After I finish answering the questions:
+
+I will say “Done” or “I’m ready for the design”.
+
+At that point, you must:
+
+Summarize my answers as key design decisions (bullet points).
+
+Produce a detailed technical architecture document for the Swagger AI Agent, including:
+
+High-level component diagram (in words)
+
+Core modules (spec ingestion, validation, normalization, execution engine, test generator, MCP adapter, environment manager, reporting, etc.)
+
+Clear separation of concerns (domain, application/use cases, infrastructure)
+
+How Swagger → Normalized Model → Test Cases → Execution → Reports flow works
+
+Provide a phased implementation roadmap (Phase 1, Phase 2, …) suitable for incremental development, such as:
+
+Phase 1: Project skeleton and core Express setup
+
+Phase 2: Domain models & repositories
+
+Phase 3: Swagger ingestion + normalization
+
+Phase 4: Validation & environment configuration
+
+Phase 5: Run planning
+
+Phase 6: Axios/RestAssured-equivalent execution engine
+
+Phase 7: Test code generation
+
+Phase 8: MCP tool wiring
+
+Phase 9+: Reports, reruns, React UI, and DB-backed persistence
+
+Optionally, provide a Copilot-ready implementation prompt:
+
+Including folder structure
+
+Rules like “one file at a time, one module at a time”
+
+Which file to implement first in each phase.
+
+Very important:
+
+Do not assume a fixed architecture up front; discover it through my answers.
+
+Keep everything Node.js-focused, but you may propose Java/RestAssured as an addon if my choices lead there.
+
+Keep language formal, professional, and concise, with examples where useful.
